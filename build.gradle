@@ -1,0 +1,18 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'demo.BasicGameApp'
+
+defaultTasks 'run'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.github.almasb:fxgl:0.3.4'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.7"
+}
