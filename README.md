@@ -31,4 +31,4 @@ gradlew run
 
 ## Standalone game executable (`.jar`)
 
-After running building the game you will find the executable in `build/libs/` with a suffix `-all`.
+After building the game you will find the executable in `build/libs/` with a suffix `-all`.
