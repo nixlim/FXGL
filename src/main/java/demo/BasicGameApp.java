@@ -13,33 +13,46 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import java.util.Map;
+
+import java.util.*;
 
 public class BasicGameApp extends GameApplication {
 
   private Entity player;
+  private int positionX = 300;
+  private int positionY = 300;
+  private Random randomModifier = new Random();
 
-    @Override
-    protected void initSettings(GameSettings settings) {
-        settings.setWidth(800);
-        settings.setHeight(600);
-        settings.setTitle("Basic Game App");
-    }
+  @Override
+  protected void initSettings(GameSettings settings) {
+      settings.setWidth(800);
+      settings.setHeight(600);
+      settings.setTitle("Basic Game App");
+  }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+  public static void main(String[] args) {
+      launch(args);
+  }
 
-    @Override
-    protected void initGame() {
-      player = Entities.builder()
-          .at(300,300)
-          .viewFromNode(new Rectangle(25, 25, Color.BLUE))
-          .buildAndAttach(getGameWorld());
+  @Override
+  protected void initGameVars(Map<String, Object> settings) {
+    settings.put("positionX", positionX);
+    settings.put("positionY", positionY);
 
-      player.translate(200,200);
-    }
+  }
 
-    @Override
+  @Override
+  protected void initGame() {
+    player = Entities.builder()
+        .at(positionX,positionY)
+        .viewFromNode(new Rectangle(25, 25, Color.BLUE))
+        .buildAndAttach(getGameWorld());
+
+  }
+
+  @Override
+  protected void onUpdate(double tpf) {
+    player.translate(0,1);
+  }
 
 }
