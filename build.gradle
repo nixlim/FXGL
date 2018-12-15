@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.github.almasb:fxgl:0.5.4"
+        classpath "com.github.almasb:fxgl-base:0.5.4"
+    }
+}
+
 plugins {
     id 'java'
     id 'application'
@@ -16,7 +26,8 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.almasb:fxgl:0.3.7'
+    compile 'com.github.almasb:fxgl-base:0.5.4'
+    compile 'com.github.almasb:fxgl:0.5.4'
 }
 
 task wrapper(type: Wrapper) {
